@@ -4,8 +4,9 @@ from json import dumps
 
 p = KafkaProducer(bootstrap_servers = ['broker:29092'], value_serializer = lambda x:dumps(x).encode('utf-8'))
 
-data = {'name': 'roscoe'}
+with open('data/0.json', 'r') as file:
+    data = json.load(file)
 
-p.send('Tutorial2.pets', value = data)
+p.send('Data.data', value = data)
 
 p.flush()

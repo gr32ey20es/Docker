@@ -112,6 +112,8 @@ services:
     networks:
       - localnet
     restart: always
+    volumes:
+      - ./running:/src
 
   mongo-express:
       image: mongo-express
@@ -146,6 +148,8 @@ services:
         "sleep 10 && mongosh --host mongo:27017 config-replica.js && sleep 10",
       ]
     restart: "no"
+    volumes:
+      - ./running:/src
 
 networks:
   localnet:
