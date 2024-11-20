@@ -113,7 +113,7 @@ services:
       - localnet
     restart: always
     volumes:
-      - ./running:/src
+      - ./running:/scratch_space
 
   mongo-express:
       image: mongo-express
@@ -149,7 +149,7 @@ services:
       ]
     restart: "no"
     volumes:
-      - ./running:/src
+      - ./running:/scratch_space
 
 networks:
   localnet:
